@@ -24,4 +24,6 @@ jobs:
 
       - name: Ejecutar pruebas
         run: |
+          cd Grupo9-funciones-python
+          export PYTHONPATH=$(pwd)
           pytest -v
