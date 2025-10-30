@@ -1,6 +1,6 @@
 # tests/test_multiplicar_vizcay.py
 
-from Funciones.multiplicar_vizcay import multiplicar
+from Funciones.Lucas_multiplicar import multiplicar
 
 def test_multiplicar():
     assert multiplicar(3, 4) == 12
