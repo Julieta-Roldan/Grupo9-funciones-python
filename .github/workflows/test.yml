@@ -5,6 +5,13 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+name: Pruebas automáticas del grupo
+
+on:
+  push:
+    branches:
+      - main
+      - '*'
 
 jobs:
   test:
@@ -26,3 +33,20 @@ jobs:
       run: |
         export PYTHONPATH=$(pwd)
         pytest -v
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalar dependencias
+        run: |
+          pip install pytest
+
+      - name: Ejecutar pruebas
+        run: |
+          export PYTHONPATH=$(pwd)
+          pytest -v
